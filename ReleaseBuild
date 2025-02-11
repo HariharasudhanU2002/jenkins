@@ -1,6 +1,6 @@
 #!groovy
-@Library('shared-lib@master')
-@Library('shared-pipeline@master') _
+@Library('shared-lib@main')
+@Library('shared-pipeline@main') _
 Map options = [
         'node': 'master'
 ]
