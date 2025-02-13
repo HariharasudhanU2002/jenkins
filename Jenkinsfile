@@ -27,16 +27,14 @@ pipeline {
                 jdk 'java-17'
             }
             steps {
-                sh 'chmod -R 755 .'
-                sh 'mvn clean verify'
-                sh'mvn clean package'
+                  sh 'chmod -R 755 .'
+                  sh 'mvn clean package'
+         }
+         stage('Upload to Artifactory') {
+             steps {
+                    archiveArtifacts artifacts: 'target/spring-petclinic-3.3.0-SNAPSHOT.jar', followSymlinks: false      
             }
         }
-        stage('Upload to Artifactory') {
-          steps {
-             archiveArtifacts artifacts: 'target/spring-petclinic-3.3.0-SNAPSHOT.jar', followSymlinks: false      
-        }
-    }
         stage('SonarQube analysis') {
             tools {
                 jdk 'java-17'
