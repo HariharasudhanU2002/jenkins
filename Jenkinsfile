@@ -45,7 +45,7 @@ pipeline {
                 projectName = "Springboot-petclini"
             }
             steps {
-                withSonarQubeEnv('sonar_1') {
+                withSonarQubeEnv('sonarid') {
                     sh """
                         export JAVA_HOME=\$JAVA_HOME
                         export PATH=\$JAVA_HOME/bin:\$PATH
