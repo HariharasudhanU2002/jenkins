@@ -38,27 +38,6 @@ pipeline {
                     archiveArtifacts artifacts: 'target/spring-petclinic-3.3.0-SNAPSHOT.jar', followSymlinks: false      
             }
         }
-        stage('SonarQube analysis') {
-            tools {
-                jdk 'java-17'
-            }
-            environment {
-                scannerHome = tool 'SonarQubeScanner'
-                projectName = "Springboot-petclini"
-            }
-            steps {
-                withSonarQubeEnv('sonarid') {
-                    sh """
-                        export JAVA_HOME=\$JAVA_HOME
-                        export PATH=\$JAVA_HOME/bin:\$PATH
-                        ${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.projectKey=${projectName} \
-                        -Dsonar.sources=src \
-                        -Dsonar.java.binaries=.
-                    """
-                }
-            }
-        }
         stage('Docker Build Image') {
                  steps {
                      script { 
