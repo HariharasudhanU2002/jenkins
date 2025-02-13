@@ -29,6 +29,7 @@ pipeline {
             steps {
                   sh 'chmod -R 755 .'
                   sh 'mvn clean package'
+               }   
          }
          stage('Upload to Artifactory') {
              steps {
