@@ -72,7 +72,7 @@ pipeline {
         }
         stage('Build Info') {
             environment {
-                NEXUS_URL = 'http://103.99.149.57:8081/'
+                NEXUS_URL = 'https://103.99.149.57:8081/'
                 REPO_NAME = 'Springboot-petclinic'
                 GROUP_ID = 'com.logicfocus'
                 ARTIFACT_ID = 'Springboot-petclinic'
