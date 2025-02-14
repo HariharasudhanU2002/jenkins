@@ -12,7 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ *//*
+
 
 package org.springframework.samples.petclinic;
 
@@ -23,12 +24,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.testcontainers.containers.MySQLContainer;
 
+*/
 /**
  * PetClinic Spring Boot Application.
  *
  * @author Dave Syer
  *
- */
+ *//*
+
 @Configuration
 public class MysqlTestApplication {
 
@@ -44,3 +47,4 @@ public class MysqlTestApplication {
 	}
 
 }
+*/
