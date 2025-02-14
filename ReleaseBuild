@@ -1,7 +1,0 @@
-#!groovy
-@Library('shared-lib@main')
-@Library('shared-pipeline@main') _
-Map options = [
-        'node': 'master'
-]
-mavenReleaseBuild(options)
