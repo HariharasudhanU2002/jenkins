@@ -1,0 +1,13 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    echo "Logging in to Docker Hub..."
+    echo $(DOCKER_HUB_PASSWORD) | docker login -u $(DOCKER_HUB_USERNAME) --password-stdin
+    echo "Pulling the Docker image..."
+    docker pull facimate/springboot-petclinic:latest
+  displayName: 'Pull Docker Image from Docker Hub'
