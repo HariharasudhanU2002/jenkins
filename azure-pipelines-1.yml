@@ -2,9 +2,10 @@ trigger:
 - main
 
 pool:
-  vmImage: default
+  vmImage: ubuntu-latest
 
 steps:
+- checkout: self
 - script: |
     echo "Logging in to Docker Hub..."
     echo $(DOCKER_HUB_PASSWORD) | docker login -u $(DOCKER_HUB_USERNAME) --password-stdin
