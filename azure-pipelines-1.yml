@@ -4,7 +4,7 @@ trigger:
 pool:
   name: 'Default'
   demands:
-    - Agent.Version -gt 2.163.1  # Ensure the version is up-to-date
+    - Agent.Version -equals 2.163.1  # Ensure the agent version matches exactly
 
 steps:
 - checkout: self
