@@ -3,8 +3,12 @@ trigger:
 
 pool:
   name: 'Default'
+  demands:
+    - Agent.Version -gt 2.163.1  # Ensure the version is up-to-date
+
 steps:
 - checkout: self
+
 - script: |
     echo "Logging in to Docker Hub..."
     echo $(DOCKER_HUB_PASSWORD) | docker login -u $(DOCKER_HUB_USERNAME) --password-stdin
