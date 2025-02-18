@@ -4,14 +4,33 @@ trigger:
 pool:
   name: devops-1
   demands:
-  - Agent.Version -equals  4.251.0
-  
+  - Agent.Version -equals 4.251.0
+
 steps:
 - checkout: self
 
 - script: |
     echo "Logging in to Docker Hub..."
     echo $(DOCKER_HUB_PASSWORD) | docker login -u $(DOCKER_HUB_USERNAME) --password-stdin
+  displayName: 'Login to Docker Hub'
+
+- script: |
     echo "Pulling the Docker image..."
     docker pull facimate/springboot-petclinic:latest
   displayName: 'Pull Docker Image from Docker Hub'
+
+- script: |
+    echo "Stopping and removing existing container if exists..."
+    docker stop petclinic || true
+    docker rm petclinic || true
+  displayName: 'Cleanup Existing Container'
+
+- script: |
+    echo "Running the Docker container..."
+    docker run -d --name petclinic -p 9090:9090 facimate/springboot-petclinic:latest
+  displayName: 'Run Docker Container'
+
+- script: |
+    echo "Checking running containers..."
+    docker ps
+  displayName: 'Verify Running Containers'
