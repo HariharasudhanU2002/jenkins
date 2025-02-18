@@ -2,9 +2,9 @@ trigger:
 - main
 
 pool:
-  name: 'Default'
+  name: Default
   demands:
-    - Agent.Version -equals 2.163.1  # Ensure the agent version matches exactly
+    - Agent.Version -gt 2.163.1  
 
 steps:
 - checkout: self
