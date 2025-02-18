@@ -2,10 +2,8 @@ trigger:
 - main
 
 pool:
-  name: Default
-  demands:
-    - Agent.Version -equals 2.163.1  
-
+  name: devops
+  
 steps:
 - checkout: self
 
