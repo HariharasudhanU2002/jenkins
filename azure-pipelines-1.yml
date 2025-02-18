@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  name: devops
+  name: devops-1
   demands:
   - Agent.Version -equals  4.251.0
   
